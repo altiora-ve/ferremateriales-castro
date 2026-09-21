@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ferremateriales Castro | Enlaces</title>
+    <!-- Importamos los íconos de FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('fondo.jpg.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Tarjeta principal con fondo blanco translúcido esmerilado */
+        .container {
+            width: 100%;
+            max-width: 420px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 24px;
+            padding: 30px 20px;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .logo-img {
+            width: 130px;
+            height: auto;
+            margin-bottom: 15px;
+            filter: drop-shadow(0px 4px 10px rgba(0,0,0,0.6));
+        }
+
+        h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .location {
+            font-size: 14px;
+            color: #f0f0f0;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+
+        /* Tarjeta de Horarios Dinámica con toque blanco */
+        .status-card {
+            background: rgba(255, 255, 255, 0.18);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
+            padding: 16px 20px;
+            width: 100%;
+            margin-bottom: 22px;
+            text-align: left;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .status-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 8px;
+            transition: color 0.3s ease;
+        }
+
+        .status-header.open { color: #2ecc71; }
+        .status-header.closed { color: #ff6b6b; }
+
+        .status-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .status-dot.open {
+            background-color: #2ecc71;
+            box-shadow: 0 0 10px #2ecc71;
+        }
+
+        .status-dot.closed {
+            background-color: #ff4d4d;
+            box-shadow: 0 0 8px #ff4d4d;
+        }
+
+        .status-days {
+            font-size: 13px;
+            color: #ffffff;
+            margin-bottom: 4px;
+            font-weight: 500;
+        }
+
+        .status-hours {
+            font-size: 13px;
+            color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Botones de acción con toque translúcido */
+        .link-button {
+            background: rgba(0, 0, 0, 0.45);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 40px;
+            padding: 12px 18px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: #ffffff;
+            text-decoration: none;
+            margin-bottom: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.25);
+        }
+
+        .link-button:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        .button-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .icon-circle {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 19px;
+            color: #fff;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .whatsapp-bg { background: linear-gradient(45deg, #25D366, #128C7E); }
+        .maps-bg { background: linear-gradient(45deg, #4285F4, #34A853); }
+        .star-bg { background: linear-gradient(45deg, #f1c40f, #f39c12); }
+        .instagram-bg { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); }
+
+        .button-text h3 {
+            font-size: 15px;
+            font-weight: 600;
+            text-align: left;
+        }
+
+        .button-text p {
+            font-size: 12px;
+            color: #dddddd;
+            text-align: left;
+        }
+
+        .arrow-icon {
+            color: #ffffff;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Pie de página corporativo con el logo de Altiora */
+        .footer-brand {
+            margin-top: 10px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            width: 85%;
+            padding-top: 12px;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: #e0e0e0;
+            letter-spacing: 0.3px;
+        }
+
+        .footer-logo-img {
+            height: 65px;
+            width: auto;
+            filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.4));
+            transition: transform 0.2s ease;
+        }
+
+        .footer-brand:hover {
+            opacity: 0.9;
+        }
+
+        .footer-brand:hover .footer-logo-img {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Logo de Ferremateriales Castro -->
+        <img src="logo.png.png" alt="Ferremateriales Castro Logo" class="logo-img" onerror="this.style.display='none'">
+        
+        <h1>Ferremateriales Castro</h1>
+        <div class="location">
+            <i class="fa-solid fa-location-dot"></i> San Cristóbal · Venezuela
+        </div>
+
+        <!-- Tarjeta de Horarios con Reloj Inteligente -->
+        <div class="status-card">
+            <div id="statusHeader" class="status-header closed">
+                <div id="statusDot" class="status-dot closed"></div> 
+                <span id="statusText">Cerrado • Abrimos mañana a las 8:30 AM</span>
+            </div>
+            <div class="status-days">Lunes a Sábados</div>
+            <div class="status-hours">
+                <i class="fa-regular fa-clock"></i> 8:30 AM - 6:00 PM (Hora local)
+            </div>
+        </div>
+
+        <!-- Botón 1: WhatsApp -->
+        <a href="#" class="link-button">
+            <div class="button-content">
+                <div class="icon-circle whatsapp-bg">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </div>
+                <div class="button-text">
+                    <h3>Atención inmediata</h3>
+                    <p>Contáctanos por WhatsApp</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+        </a>
+
+        <!-- Botón 2: Google Maps -->
+        <a href="#" class="link-button">
+            <div class="button-content">
+                <div class="icon-circle maps-bg">
+                    <i class="fa-solid fa-map-location-dot"></i>
+                </div>
+                <div class="button-text">
+                    <h3>Cómo llegar</h3>
+                    <p>Ubicación en Google Maps</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+        </a>
+
+        <!-- Botón 3: Reseña de Google -->
+        <a href="#" class="link-button">
+            <div class="button-content">
+                <div class="icon-circle star-bg">
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <div class="button-text">
+                    <h3>Valora tu experiencia</h3>
+                    <p>Déjanos una reseña en Google</p>
+                </div>
+            </div>
+            <i class="fa-solid fa-chevron-right arrow-icon"></i>
+        </a>
+
+        <!-- Botón 4: Instagram -->
+<a href="https://www.instagram.com/ferrematerialescastro/" target="_blank" rel="noopener noreferrer" class="link-button">
+    <div class="button-content">
+        <div class="icon-circle instagram-bg">
+            <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div class="button-text">
+            <h3>Síguenos en Instagram</h3>
+            <p>Descubre nuestro catálogo y novedades</p>
+        </div>
+    </div>
+    <i class="fa-solid fa-chevron-right arrow-icon"></i>
+</a>
+
+        <!-- Pie de página 5: Desarrollado por Altiora -->
+        <a href="https://www.instagram.com/altiora.ve?stkn=ano0ajcybTgyZjc=" target="_blank" class="footer-brand">
+            <span class="footer-text">Sitio web desarrollado por</span>
+            <img src="logo-altiora.png.png" alt="Altiora Logo" class="footer-logo-img">
+        </a>
+    </div>
+
+    <!-- Script de JavaScript para el Reloj e Indicador Inteligente -->
+    <script>
+        function verificarHorarioNegocio() {
+            const ahora = new Date();
+            const diaSemana = ahora.getDay(); // 0: Domingo, 1: Lunes, ..., 6: Sábado
+            const horaActual = ahora.getHours();
+            const minutoActual = ahora.getMinutes();
+
+            const minutosTotales = horaActual * 60 + minutoActual;
+
+            // Lunes a Sábado (1 a 6)
+            const esDiaLaboral = diaSemana >= 1 && diaSemana <= 6;
+            // 8:30 AM (510 min) a 6:00 PM (1080 min)
+            const estaEnHorario = minutosTotales >= 510 && minutosTotales <= 1080; 
+
+            const statusHeader = document.getElementById('statusHeader');
+            const statusDot = document.getElementById('statusDot');
+            const statusText = document.getElementById('statusText');
+
+            if (esDiaLaboral && estaEnHorario) {
+                statusHeader.className = "status-header open";
+                statusDot.className = "status-dot open";
+                statusText.innerText = "Abierto ahora";
+            } else {
+                statusHeader.className = "status-header closed";
+                statusDot.className = "status-dot closed";
+                
+                // Mensajes dinámicos según el día
+                if (diaSemana === 0) { // Domingo
+                    statusText.innerText = "Cerrado • Abrimos mañana a las 8:30 AM";
+                } else if (diaSemana === 6 && minutosTotales > 1080) { // Sábado después de las 6:00 PM
+                    statusText.innerText = "Cerrado • Abrimos el lunes a las 8:30 AM";
+                } else if (minutosTotales > 1080) { // Lunes a Viernes después de las 6:00 PM
+                    statusText.innerText = "Cerrado • Abrimos mañana a las 8:30 AM";
+                } else { // Antes de abrir en un día laboral
+                    statusText.innerText = "Cerrado • Abrimos hoy a las 8:30 AM";
+                }
+            }
+        }
+
+        verificarHorarioNegocio();
+        setInterval(verificarHorarioNegocio, 30000);
+    </script>
+
+</body>
+</html>
